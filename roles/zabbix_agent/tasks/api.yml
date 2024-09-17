@@ -1,5 +1,7 @@
 ---
 - name: "API | Create host groups"
+  vars:
+    ansible_become: false
   community.zabbix.zabbix_group:
     host_groups: "{{ zabbix_host_groups }}"
     state: present
@@ -9,11 +11,12 @@
   until: zabbix_api_hostgroup_created is succeeded
   retries: 10
   delegate_to: "{{ zabbix_api_server_host }}"
-  become: false
   tags:
     - api
 
 - name: "API | Create a new host or update an existing host's info"
+  vars:
+    ansible_become: false
   community.zabbix.zabbix_host:
     host_name: "{{ zabbix_agent_hostname }}"
     status: "{{ zabbix_host_status }}"
@@ -50,6 +53,8 @@
     - api
 
 - name: "API | Updating host configuration with macros"
+  vars:
+    ansible_become: false
   community.zabbix.zabbix_hostmacro:
     host_name: "{{ zabbix_agent_hostname }}"
     macro_name: "{{ item.macro_key }}"
