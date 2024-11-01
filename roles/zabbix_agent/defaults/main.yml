@@ -98,6 +98,7 @@ zabbix_agent_tls_config:
   unencrypted: "1"
   psk: "2"
   cert: "4"
+  unencrypted_psk: "3"
 
 # IPMI settings
 zabbix_agent_ipmi_authtype: -1
