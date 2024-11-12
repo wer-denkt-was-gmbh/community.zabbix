@@ -36,9 +36,9 @@ zabbix_proxy_include_mode: "0755"
 zabbix_proxy_manage_service: true
 zabbix_proxy_privileged_host: localhost
 zabbix_proxy_tls_config:
-  unencrypted: "1"
-  psk: "2"
-  cert: "4"
+  no_encryption: "no_encryption"
+  psk: "PSK"
+  cert: "certificate"
 zabbix_proxy_version_minor: "*"
 
 # Yum/APT Variables
