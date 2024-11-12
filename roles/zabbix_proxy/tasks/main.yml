@@ -125,8 +125,8 @@
   tags:
     - config
 
-- debug:
-    msg: "tls_connect={{ zabbix_proxy_tls_config[zabbix_proxy_tlsconnect | default('no_encryption')]}} tls_accept={{ zabbix_proxy_tls_config[zabbix_proxy_tlsaccept | default('no_encryption')] }} zabbix_proxy_tlsconnect={{zabbix_proxy_tlsconnect}} config={{zabbix_proxy_tls_config}}"
+#- debug:
+#    msg: "tls_connect={{ zabbix_proxy_tls_config[zabbix_proxy_tlsconnect | default('no_encryption')]}} tls_accept={{ zabbix_proxy_tls_config[zabbix_proxy_tlsaccept | default('no_encryption')] }} zabbix_proxy_tlsconnect={{zabbix_proxy_tlsconnect}} config={{zabbix_proxy_tls_config}}"
 
 - name: Ensure proxy definition is up-to-date (added/updated/removed)
   vars:
