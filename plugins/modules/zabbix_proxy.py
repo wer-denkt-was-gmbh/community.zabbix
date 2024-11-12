@@ -663,6 +663,8 @@ def main():
 
     proxy = Proxy(module)
 
+    self._module.fail_json(msg="Using Zabbix version %s" % (self._zbx_api_version))
+
     # convert enabled / disabled to integer
     if LooseVersion(proxy._zbx_api_version) < LooseVersion("7.0"):
         proxy_address = ""
