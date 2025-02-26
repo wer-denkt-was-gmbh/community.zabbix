@@ -89,6 +89,24 @@
   when: ( zabbix_server_alertscripts is defined ) or
     ( zabbix_server_externalscripts is defined )
 
+- name: Ensure directory exists
+  ansible.builtin.file:
+    path: /etc/systemd/system/zabbix-server.service.d
+    state: directory
+    owner: root
+    group: root
+    mode: '0755'
+
+- name: Deploy Zabbix Server systemd override file
+  template:
+    src: templates/zabbix_server_override.conf.j2
+    dest: /etc/systemd/system/zabbix-server.service.d/override.conf
+    owner: root
+    group: root
+    mode: '0644'
+  notify:
+    - reload systemd
+
 - name: "Zabbix-server started"
   ansible.builtin.service:
     name: zabbix-server
