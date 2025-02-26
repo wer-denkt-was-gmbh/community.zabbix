@@ -17,3 +17,8 @@
   when:
     - ansible_os_family == 'RedHat'
     - zabbix_http_proxy is defined or zabbix_https_proxy is defined
+
+- name: reload systemd
+  systemd:
+    daemon_reload: yes
+
