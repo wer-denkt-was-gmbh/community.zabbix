@@ -170,6 +170,7 @@
     mode: '0644'
   notify:
     - reload systemd
+    - restart zabbix-proxy
 
 - name: "zabbix-proxy started"
   ansible.builtin.service:
